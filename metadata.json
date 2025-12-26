@@ -1,0 +1,7 @@
+{
+  "name": "Smart HR Global Platform",
+  "description": "A comprehensive, AI-enhanced Human Resources Management System designed for modern enterprises. Features advanced dashboard analytics, smart recruitment tools, payroll management, and a specialized loan system tailored for various employment sectors.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

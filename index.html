@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart HR Global Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['IBM Plex Sans Arabic', 'Cairo', 'sans-serif'],
+            },
+            colors: {
+              primary: 'var(--color-primary)', // Dynamic Primary
+              secondary: '#2F3A47', // Slate Gray
+              accent: '#C32B2B', // Crimson
+              success: '#20A76A', // Emerald
+              warning: '#F59E0B', // Amber
+              dark: '#0f172a',
+            },
+            animation: {
+              'blob': 'blob 10s infinite',
+              'fade-in': 'fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'slide-up': 'slideUp 0.5s ease-out forwards',
+              'flag-wave': 'flagWave 6s ease-in-out infinite',
+              'shine-move': 'shineMove 8s infinite linear',
+            },
+            keyframes: {
+              flagWave: {
+                '0%, 100%': { 
+                  transform: 'perspective(1000px) rotateY(-5deg) rotateX(2deg) skewY(-1deg)',
+                  filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.2))'
+                },
+                '50%': { 
+                  transform: 'perspective(1000px) rotateY(5deg) rotateX(-2deg) skewY(1deg) translateY(-5px)',
+                  filter: 'drop-shadow(0 25px 45px rgba(0,0,0,0.3))'
+                },
+              },
+              shineMove: {
+                '0%': { transform: 'translateX(-200%) translateY(-50%) rotate(30deg)' },
+                '100%': { transform: 'translateX(200%) translateY(-50%) rotate(30deg)' },
+              },
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(5px) scale(0.98)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              slideUp: {
+                 '0%': { transform: 'translateY(100%)', opacity: '0' },
+                 '100%': { transform: 'translateY(0)', opacity: '1' }
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      :root {
+        --color-primary: #0B4F8C; /* Default Blue */
+        --color-secondary: #2F3A47;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: rgba(30, 41, 59, 0.5); 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(100, 116, 139, 0.5); 
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(100, 116, 139, 0.8); 
+      }
+
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+      /* Glassmorphism Utilities */
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .dark .glass {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Smooth Theme Transition */
+      body {
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
+      
+      /* Specific Theme Styles - Dynamic Primary Color */
+      body[data-theme='default'] { --color-primary: #0B4F8C; }
+      body[data-theme='defense'] { --color-primary: #3f6212; }
+      body[data-theme='interior'] { --color-primary: #1e3a8a; }
+      body[data-theme='health'] { --color-primary: #0891b2; }
+      body[data-theme='corporate'] { --color-primary: #334155; }
+      body[data-theme='gold'] { --color-primary: #d97706; }
+      body[data-theme='carbon'] { --color-primary: #111827; }
+      body[data-theme='crimson'] { --color-primary: #dc2626; }
+      body[data-theme='emerald'] { --color-primary: #059669; }
+      body[data-theme='violet'] { --color-primary: #7c3aed; }
+      body[data-theme='royal'] { --color-primary: #4338ca; }
+
+      /* Utility Extras */
+      .text-glow { text-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
+      .mask-gradient-sides { -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+      
+      @media print {
+        .no-print { display: none !important; }
+      }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden" data-theme="default">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
